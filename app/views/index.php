@@ -10,14 +10,9 @@
     <link rel="stylesheet" href="public/css/bootstrap.css">
     <link rel="stylesheet" href="public/css/fonts.css">
     <link rel="stylesheet" href="public/css/style.css">
-    <style>
-        
-    </style>
-    
     <style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
   </head>
   <body>
-    <div class="ie-panel"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="public/site/images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <div class="preloader">
       <div class="preloader-body">
         <div class="cssload-container">
@@ -55,7 +50,7 @@
                     </ul><a class="button button-white button-sm" href="<?php echo site_url('users/create'); ?>">book now</a>
                   </div>
                 </div><a class="button button-white button-sm" href="reserve">book now</a>
-              </div>
+              </div>  
             </div>
           </nav>
         </div>

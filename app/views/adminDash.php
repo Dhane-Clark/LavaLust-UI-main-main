@@ -78,6 +78,8 @@
 </head>
 <body>
     <div class="container">
+    <form method="POST" action="<?php echo site_url(url: 'deleteAppoiontment'); ?>">
+
         <h1>Admin - Manage Appointments</h1>
 
         <!-- Button to add a new appointment -->
@@ -114,12 +116,14 @@
                             </select>
                         </td>
                         <td>
-                            <a class="action-link" href="<?php echo site_url('/deleteAppoiontment'); ?>" >Delete</a>
+                            <a class="action-link" href="<?php echo site_url('deleteAppoiontment'); ?>" >Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
+                </form>
+
     </div>
 </body>
 </html>

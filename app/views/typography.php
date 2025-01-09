@@ -50,7 +50,7 @@
                       </li>
                     </ul><a class="button button-white button-sm" href="#">book now</a>
                   </div>
-                </div><a class="button button-white button-sm" href="#">book now</a>
+                </div><a class="button button-white button-sm" href="reserve">book now</a>
               </div>
             </div>
           </nav>
