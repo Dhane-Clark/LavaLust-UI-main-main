@@ -8,6 +8,11 @@ class ReserveCon extends Controller {
         $this->call->model('Appointment_model');
         $data['appointments'] = $this->Appointment_model->get_all_appointments();
         $this->call->view('book', $data);
+        if($this->session->has_userdata('logged_in')) {
+            redirect('index');
+        } else {
+            redirect();
+        }
     }
 
     // Show the form to create a new appointment

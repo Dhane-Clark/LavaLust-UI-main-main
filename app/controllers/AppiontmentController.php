@@ -7,7 +7,7 @@ class AppointmentController extends Controller
     // List all appointments for the logged-in user
     public function index()
     {
-        $session = $this->session->userdata('isLoggedIn');
+        $session = $this->session->userdata('logged_in');
 
         if (!$session) {
             return redirect('login'); // Redirect if the user is not logged in

@@ -62,10 +62,10 @@ class Lauth {
 		);
 		return password_hash($password, PASSWORD_BCRYPT, $options);
 		$password = password_hash('your_password', PASSWORD_DEFAULT);
-	$this->db->table('admin_users')->insert([
-    'email' => 'admin@example.com',
-    'password_hash' => $password
-]);
+		$this->db->table('admin_users')->insert([
+		'email' => 'admin@example.com',
+		'password_hash' => $password
+	]);
 
 	}
 
@@ -175,7 +175,7 @@ class Lauth {
 		} else {
 			if($this->LAVA->session->has_userdata('user_id')) {
 				$this->set_logged_out();
-			}
+			}																			
 		}
 	}
 

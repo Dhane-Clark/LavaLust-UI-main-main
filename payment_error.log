@@ -23,3 +23,23 @@ Payment creation failed: invalid_client - Response: Array
     [error] => invalid_client
     [error_description] => Client Authentication failed
 )
+Response from PayPal: Array
+(
+    [error] => invalid_client
+    [error_description] => Client Authentication failed
+)
+Payment creation failed: invalid_client - Response: Array
+(
+    [error] => invalid_client
+    [error_description] => Client Authentication failed
+)
+Response from PayPal: Array
+(
+    [error] => invalid_client
+    [error_description] => Client Authentication failed
+)
+Payment creation failed: invalid_client - Response: Array
+(
+    [error] => invalid_client
+    [error_description] => Client Authentication failed
+)

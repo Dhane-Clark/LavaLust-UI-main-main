@@ -43,11 +43,13 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 |
 |
 */
-$router->post('/index', 'UserDash::index');
+$router->get('/index', 'UserDash::index');
 $router->get('/about', 'UserDash::about');
 $router->get('/typography', 'UserDash::typography');
 $router->get('/contacts', 'UserDash::contacts');
 $router->get('/adminDash', 'AdminDash::index');
+
+$router->get('/test', 'UserAuth::test');
 
 
 //Admin

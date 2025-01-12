@@ -6,6 +6,11 @@ class UserDash extends Controller {
     public function __construct()
     {
         parent::__construct();
+        if($this->session->has_userdata('logged_in')) {
+            redirect('index');
+        } else {
+            redirect();
+        }
     }
 
     public function index() {
