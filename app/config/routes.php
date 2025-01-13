@@ -49,7 +49,7 @@ $router->get('/typography', 'UserDash::typography');
 $router->get('/contacts', 'UserDash::contacts');
 $router->get('/adminDash', 'AdminDash::index');
 
-$router->get('/test', 'UserAuth::test');
+$router->get('/test/{id}', 'AppointmentController::test');
 
 
 //Admin
@@ -112,7 +112,7 @@ $router->post('/paymentProcess', 'PaymentConttroller::processPayment');
 
 
 
-$router->post('/deleteAppoiontment/(:num)', 'AppointmentController::delete/$1');
+$router->get('/deleteAppointment/{id}', 'AppointmentController::delete');
 $router->post('/status/(:num)', 'AppointmentController::update_status');
 
 

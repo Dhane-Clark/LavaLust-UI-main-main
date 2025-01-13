@@ -83,11 +83,4 @@ class UserAuth extends Controller {
     public function reserve() {
         $this->call->view('book');
     }
-
-    public function test() {
-
-        $username = $this->db->table('userss')->where('id', $this->session->userdata('logged_in'))->get();
-        echo json_encode($username['username']);
-
-    }
 }

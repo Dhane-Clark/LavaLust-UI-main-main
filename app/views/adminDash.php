@@ -116,7 +116,7 @@
                             </select>
                         </td>
                         <td>
-                            <a class="action-link" href="<?php echo site_url('deleteAppoiontment'); ?>" >Delete</a>
+                            <a class="action-link" href="<?=site_url('deleteAppointment/'.$appointment['id']);?>" >Delete</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

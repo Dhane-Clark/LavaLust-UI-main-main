@@ -4,6 +4,11 @@ defined('PREVENT_DIRECT_ACCESS') or exit('No direct script access allowed');
 class AppointmentController extends Controller
 {
 
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     // List all appointments for the logged-in user
     public function index()
     {
@@ -89,19 +94,16 @@ class AppointmentController extends Controller
     }
     public function delete($id)
     {
-        // Load model
-        $this->load->model('Appointment_model');
-
         // Call model method to delete the appointment
-        if ($this->Appointment_model->delete_appointment($id)) {
+        if ($this->db->table('appointments')->where('id', $id)->delete()) {
             $this->session->set_flashdata('success', 'Appointment deleted successfully.');
+            redirect('adminDash'); 
         } else {
             $this->session->set_flashdata('error', 'Failed to delete appointment.');
         }
-
-        // Redirect back to the appointment management page
-        redirect('adminDash');
+        redirect('adminDash'); 
     }
+
     public function update_status($id)
     {
         // Get the status from the request
@@ -119,6 +121,16 @@ class AppointmentController extends Controller
 
         // Redirect back to the appointment management page
         redirect('adminDash');
+    }
+
+    public function test($data) {
+        // $username = $this->db->table('appointments')->where(['id' => 4])->delete();
+        // if($username) {
+        //     echo 'ok';
+        // } else {
+        //     echo 'no';
+        // }
+        echo $data;
     }
 
 }
