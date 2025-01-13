@@ -106,20 +106,7 @@ class AppointmentController extends Controller
 
     public function update_status($id)
     {
-        // Get the status from the request
-        $status = $this->input->get('status');
-
-        // Load model
-        $this->load->model('Appointment_model');
-
-        // Call model method to update the status
-        if ($this->Appointment_model->update_status($id, $status)) {
-            $this->session->set_flashdata('success', 'Appointment status updated successfully.');
-        } else {
-            $this->session->set_flashdata('error', 'Failed to update appointment status.');
-        }
-
-        // Redirect back to the appointment management page
+        $this->db->table('appointments')->where('id', $id)->update(['status' => $this->io->post('status')]);
         redirect('adminDash');
     }
 

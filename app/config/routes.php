@@ -113,7 +113,7 @@ $router->post('/paymentProcess', 'PaymentConttroller::processPayment');
 
 
 $router->get('/deleteAppointment/{id}', 'AppointmentController::delete');
-$router->post('/status/(:num)', 'AppointmentController::update_status');
+$router->post('/status/{id}', 'AppointmentController::update_status');
 
 
 

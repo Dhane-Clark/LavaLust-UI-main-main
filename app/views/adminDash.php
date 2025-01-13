@@ -78,8 +78,6 @@
 </head>
 <body>
     <div class="container">
-    <form method="POST" action="<?php echo site_url(url: 'deleteAppoiontment'); ?>">
-
         <h1>Admin - Manage Appointments</h1>
 
         <!-- Button to add a new appointment -->
@@ -108,12 +106,14 @@
                         <td><?php echo $appointment['duration']; ?> minutes</td>
                         <td>
                             <!-- Status dropdown to update appointment status -->
-                            <select class="status-select">
-                                <option value="Pending" <?php echo $appointment['status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
-                                <option value="Confirmed" <?php echo $appointment['status'] == 'Confirmed' ? 'selected' : ''; ?>>Confirmed</option>
-                                <option value="Completed" <?php echo $appointment['status'] == 'Completed' ? 'selected' : ''; ?>>Completed</option>
-                                <option value="Cancelled" <?php echo $appointment['status'] == 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
-                            </select>
+                            <form method="post" action="<?= site_url('status/' . $appointment['id']); ?>">
+                                <select class="status-select" name="status" onchange="this.form.submit()">
+                                    <option value="Pending" <?php echo $appointment['status'] == 'Pending' ? 'selected' : ''; ?>>Pending</option>
+                                    <option value="Confirmed" <?php echo $appointment['status'] == 'Confirmed' ? 'selected' : ''; ?>>Confirmed</option>
+                                    <option value="Completed" <?php echo $appointment['status'] == 'Completed' ? 'selected' : ''; ?>>Completed</option>
+                                    <option value="Cancelled" <?php echo $appointment['status'] == 'Cancelled' ? 'selected' : ''; ?>>Cancelled</option>
+                                </select>
+                            </form>
                         </td>
                         <td>
                             <a class="action-link" href="<?=site_url('deleteAppointment/'.$appointment['id']);?>" >Delete</a>
@@ -122,7 +122,6 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-                </form>
 
     </div>
 </body>
