@@ -86,13 +86,8 @@ class UserAuth extends Controller {
 
     public function test() {
 
-        $data = $this->session->has_userdata('logged_in');
-
-        if($data) {
-            echo $this->session->userdata('logged_in');
-        } else {
-            echo 'noy';  
-        }
+        $username = $this->db->table('userss')->where('id', $this->session->userdata('logged_in'))->get();
+        echo json_encode($username['username']);
 
     }
 }

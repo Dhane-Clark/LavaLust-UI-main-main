@@ -3,16 +3,24 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 class ReserveCon extends Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+        if(!$this->session->has_userdata('logged_in')) {
+            redirect();
+        }
+    }
+    
     // Display all appointments
     public function index() {
         $this->call->model('Appointment_model');
-        $data['appointments'] = $this->Appointment_model->get_all_appointments();
+        $username = $this->db->table('userss')->where('id', $this->session->userdata('logged_in'))->get();
+        $data = [
+            'appointments' => $this->Appointment_model->get_all_appointments(),
+            'name' => $username['username'],
+            'id'  => $this->session->userdata('logged_in')
+        ];
         $this->call->view('book', $data);
-        if($this->session->has_userdata('logged_in')) {
-            redirect('index');
-        } else {
-            redirect();
-        }
     }
 
     // Show the form to create a new appointment
@@ -28,8 +36,7 @@ class ReserveCon extends Controller {
             ->name('service_type')->required()
             ->name('appointment_date')->required()
             ->name('appointment_time')->required()
-            ->name('duration')->required()->numeric()
-            ->name('status')->required();
+            ->name('duration')->required()->numeric();
 
         // Validate the form
         if ($this->form_validation->run() == FALSE) {
@@ -38,7 +45,8 @@ class ReserveCon extends Controller {
             $this->call->model('Appointment_model');
             $data = $this->io->post();
             $this->Appointment_model->add_appointment($data);
-            redirect('reserve   ');
+            set_flash_alert('success', 'Book successfully');
+            redirect('reserve');
         }
     }
 

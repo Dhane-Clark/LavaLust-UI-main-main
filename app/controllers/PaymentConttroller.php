@@ -6,9 +6,7 @@ class PaymentConTtroller extends Controller {
         // Load necessary libraries
         $this->call->library('paypal');  // Assuming a custom PayPal library is set up
         $this->call->library('session');
-        if($this->session->has_userdata('logged_in')) {
-            redirect('index');
-        } else {
+        if(!$this->session->has_userdata('logged_in')) {
             redirect();
         }
     }

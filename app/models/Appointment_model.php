@@ -22,7 +22,7 @@ class Appointment_model extends Model {
                 'appointment_date' => $data['appointment_date'],
                 'appointment_time' => $data['appointment_time'],
                 'duration' => $data['duration'],
-                'status' => $data['status'],
+                'status' => 'PENDING',
                 'created_at' => date('Y-m-d H:i:s')
             ];
                     
